@@ -1,0 +1,43 @@
+<div class="beer">
+    <div class="visitor">
+        <div class="visitor-left">
+
+            <fa-icon class="info"
+                (click)="onInfo()"
+                [icon]="faCircleInfo"></fa-icon>
+            <div class="vessel">
+                @if(beer.vessel === 'glass') {
+                <fa-icon [icon]="faWineGlassEmpty"></fa-icon>
+                }
+                @if(beer.vessel === 'bottle'){
+
+                <fa-icon [icon]="faBottleDroplet"></fa-icon>
+                }
+                <i class="fa-solid fa-bottle-droplet"></i>
+            </div>
+            <div class="name">{{beer.name}}</div>
+        </div>
+        <div class="price">{{beer.price|currency:"EUR"}}</div>
+
+
+        <!-- <p class="name-nl">name nl: {{beer.nameNl}}</p>
+        <p class="content-cl">contentCl: {{beer.contentCl}}</p> -->
+    </div>
+    @if(authStore.isLoggedIn()) {
+    <div class="admin">
+
+        <div class="seq-no">seq nr:&nbsp;{{beer.seqNo}}</div>
+        <div class="id">id:&nbsp;{{beer.id}}</div>
+        <div class="buttons">
+            <button mat-mini-fab
+                (click)="onDelete()">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-mini-fab
+                (click)="onEdit()">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    </div>
+    }
+</div>

@@ -1,0 +1,36 @@
+<div class="image">
+    <img [src]="ebImage.filePath"
+        alt="">
+    <div class="image-meta">
+        @if(ebImage.title){
+        <div class="title">title:&nbsp;{{ebImage.title}}</div>
+        }
+        @if(ebImage.artistName){
+        <div class="artsist-name">artist:&nbsp;{{ebImage.artistName}}</div>
+        }
+        @if(ebImage.copyrightOwner) {
+        <div class="copyright-owner">&copy;&nbsp;{{ebImage.copyrightOwner}}</div>
+        }
+        @if(ebImage.price) {
+        <div class="price">{{ebImage.price|currency:"EUR"}}</div>
+        }
+        <div class="buttons">
+            <button mat-icon-button
+                color="primary">
+                <mat-icon (click)="onDeleteImage()">delete</mat-icon>
+            </button>
+            <button mat-icon-button>
+
+                <mat-icon (click)="onEditImage()">edit</mat-icon>
+            </button>
+            <button mat-icon-button>
+
+                <mat-icon (click)="onMove('up')">arrow_left</mat-icon>
+            </button>
+            <button mat-icon-button>
+
+                <mat-icon (click)="onMove('down')">arrow_right</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

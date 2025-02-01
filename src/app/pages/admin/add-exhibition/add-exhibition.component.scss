@@ -1,0 +1,49 @@
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 2rem;
+    gap: 1rem;
+    form {
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        .artist-names {
+            button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            .artist-name {
+                // justify-content: center;
+                align-items: center;
+                display: flex;
+                gap: 1rem;
+                mat-form-field {
+                    flex-grow: 1;
+                }
+                mat-icon {
+                    color: red;
+                }
+            }
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+    .ebImages {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        gap: 0.5rem;
+    }
+    .non-edit-notice {
+        color: var(--eb-blue);
+        background-color: var(--eb-orange);
+        padding: 1rem;
+    }
+
+    app-manage-images {
+        background-color: aqua;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,69 @@
+<form [formGroup]="form">
+    @if(!editmode) {
+    <h3>adding consumption to: {{type}}</h3>
+    }
+    @else {
+    <h3>editing consumption in: {{type}}</h3>
+    }
+
+    <mat-form-field>
+        <mat-label>name nl</mat-label>
+        <input type="text"
+            matInput
+            formControlName="nameNl">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>description nl</mat-label>
+        <textarea type="text"
+            matInput
+            formControlName="descriptionNl">
+        </textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>name en</mat-label>
+        <input type="text"
+            matInput
+            formControlName="nameEn">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>description en</mat-label>
+        <textarea type="text"
+            matInput
+            formControlName="descriptionEn">
+        </textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Vessel</mat-label>
+        <mat-select formControlName="vessel">
+            @for (vessel of vessels; track vessel) {
+            <mat-option [value]="vessel">{{vessel}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="availableOutside">
+        available outside
+    </mat-checkbox>
+
+
+
+    <mat-form-field>
+        <mat-label>price</mat-label>
+        <input type="number"
+            matInput
+            formControlName="price">
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button
+            [disabled]="form.invalid"
+            (click)="onSubmit()">{{!editmode ? 'add': 'update'}}</button>
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+    </div>
+
+</form>

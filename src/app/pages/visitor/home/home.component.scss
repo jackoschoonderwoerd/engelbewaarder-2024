@@ -1,0 +1,207 @@
+section {
+}
+* {
+    background-color: var(--blue);
+    color: var(--bright-orange);
+}
+
+.background-image {
+    // background-image: url('./../../assets/images/terras-boot-vanaf-cafe-\ W-480px.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 60%;
+    height: 70vh;
+
+    @media (max-width: 480px) {
+        height: 50vh;
+        background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-480px.jpg");
+    }
+
+    // @media (max-width: 480px) {
+    //     height: 50vh;
+    //     background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-480px.jpg");
+    // }
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-767px.jpg");
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-1024px.jpg");
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+        background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-1280px.jpg");
+    }
+
+    @media (min-width: 1281px) {
+        background-image: url("./../../../../../public/images/backgrounds/terras-boot-vanaf-cafe/terras-boot-vanaf-cafe-1280px.jpg");
+    }
+
+    .banner {
+        top: 10vh;
+        left: 10vw;
+        // max-width: 70vw;
+        width: fit-content;
+        position: relative;
+        background-color: var(--eb-blue);
+        // color: var(--text-color-bright-orange);
+        padding: 25px;
+        opacity: 0.8;
+        border: 2px solid var(--eb-orange);
+
+        .banner-header {
+            color: var(--eb-bright-orange);
+            font-size: 0.8rem;
+
+            @media (max-width: 480px) {
+                font-size: 0.5rem;
+            }
+
+            @media (min-width: 481px) and (max-width: 767px) {
+                font-size: 0.7rem;
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                font-size: 1.3rem;
+            }
+
+            @media (min-width: 1025px) and (max-width: 1400px) {
+                font-size: 1.7rem;
+            }
+
+            @media (min-width: 1401px) {
+                font-size: 2.2rem;
+            }
+        }
+
+        .banner-content {
+            font-family: "Crimson Pro", serif;
+            display: flex;
+
+            .capital {
+                padding: 0px;
+                font-family: "Crimson Pro", serif;
+                font-size: 1.5rem;
+                color: red;
+                background-color: #fff;
+
+                @media (max-width: 480px) {
+                    font-size: 1.5rem;
+                }
+
+                @media (min-width: 481px) and (max-width: 767px) {
+                    font-size: 2rem;
+                }
+
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    font-size: 3.5rem;
+                }
+
+                @media (min-width: 1025px) and (max-width: 1280px) {
+                    font-size: 5rem;
+                }
+
+                @media (min-width: 1281px) {
+                    font-size: 7rem;
+                }
+            }
+
+            .non-capital {
+                margin-top: 3px;
+                /* border: 1px solid lightblue; */
+                font-family: "Crimson Pro", serif;
+                font-size: 1rem;
+                color: #fff;
+
+                @media (max-width: 480px) {
+                    margin-top: 3px;
+                    font-size: 1rem;
+                }
+
+                @media (min-width: 481px) and (max-width: 767px) {
+                    margin-top: 3px;
+                    font-size: 1.5rem;
+                }
+
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    margin-top: 5px;
+                    font-size: 2.5rem;
+                }
+
+                @media (min-width: 1025px) and (max-width: 1280px) {
+                    margin-top: 8px;
+                    font-size: 3.5rem;
+                }
+
+                @media (min-width: 1281px) {
+                    margin-top: 10px;
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+}
+
+.page-content {
+    .openingstijden {
+        margin: 35px;
+        padding: 1rem;
+        border: 3px solid var(--eb-orange);
+
+        .tijden {
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: var(--eb-bright-orange);
+            /* color: white; */
+            text-align: center;
+            .openingHours {
+                // border: 1px solid green;
+                margin-top: 0;
+            }
+            .openingHoursWeekend {
+                // border: 1px solid red;
+                margin-top: 0;
+            }
+        }
+
+        .reserveren {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--eb-bright-orange);
+        }
+    }
+    .menu {
+        margin-bottom: 2rem;
+        ul {
+            li {
+                margin: auto;
+                max-width: 12rem;
+                a {
+                    text-align: center;
+                    cursor: pointer;
+                    background-color: var(--eb-orange);
+                    font-size: 1.5rem;
+                    border-radius: 0.3rem;
+                    padding: 0.5rem;
+                    margin: 5px 0;
+                    text-transform: uppercase;
+                    display: block;
+                    color: var(--blue);
+                }
+            }
+        }
+        .menu-item {
+        }
+    }
+}
+
+// @media (max-width: 480px) {}
+
+// @media (min-width: 481px) and (max-width: 767px) {}
+
+// @media (min-width: 768px) and (max-width: 1024px) {}
+
+// @media (min-width: 1025px) and (max-width: 1280px) {}
+
+// @media (min-width: 1281px) {}

@@ -1,0 +1,60 @@
+<mat-toolbar>
+    <ul class="left">
+        <li class="list-item-menu">
+            <mat-icon (click)="onToggleSidenav()">menu</mat-icon>
+        </li>
+        <li routerLink="home"
+            class="list-item-home">
+            <mat-icon>home</mat-icon>
+        </li>
+
+
+    </ul>
+
+    <ul class="right">
+        @if(authStore.isLoggedIn()){
+        @for(item of adminNavListItems; track item) {
+        <li class="admin-list-item">
+            <a [routerLink]="item.english"
+                routerLinkActive="link-active">
+                @if(uiStore.selectedLanguage() === 'nl') {
+                {{item.dutch}}
+                }
+                @if(uiStore.selectedLanguage() === 'en') {
+                {{item.english}}
+                }
+            </a>
+        </li>
+        }
+        }
+
+        @for(item of navListItems; track item) {
+        <li>
+            <a [routerLink]="item.english"
+                routerLinkActive="link-active">
+                @if(uiStore.selectedLanguage() === 'nl') {
+                {{item.dutch}}
+                }
+                @if(uiStore.selectedLanguage() === 'en') {
+                {{item.english}}
+                }
+            </a>
+        </li>
+        }
+        <app-select-language></app-select-language>
+        <!-- <img [ngClass]="{'selected-language': uiStore.selectedLanguage() === 'nl'}"
+            (click)="selectLanguage('nl')"
+            src="images\flags\nl-flag.png"
+            alt="">
+        <img [ngClass]="{'selected-language': uiStore.selectedLanguage() === 'en'}"
+            (click)="selectLanguage('en')"
+            src="images\flags\en-flag.png"
+            alt=""> -->
+        @if(!authStore.isLoggedIn()) {
+        <mat-icon routerLink="login">login</mat-icon>
+        }
+        @if(authStore.isLoggedIn()) {
+        <mat-icon (click)="authStore.logout()">logout</mat-icon>
+        }
+    </ul>
+</mat-toolbar>

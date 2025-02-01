@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+    <div class="header">adding category to {{type}}</div>
+    <mat-form-field>
+        <mat-label>name nl</mat-label>
+        <input type="text"
+            matInput
+            formControlName="nameNl">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>name en</mat-label>
+        <input type="text"
+            matInput
+            formControlName="nameEn">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>sequential number</mat-label>
+        <input type="number"
+            matInput
+            formControlName="seqNo">
+    </mat-form-field>
+    <mat-checkbox formControlName="headerVisibleToVisitor"
+        [(ngModel)]="checkboxChecked"
+        (change)="onCheckboxChange($event.checked)">
+        header visible to visitor
+    </mat-checkbox>
+    <div class="buttons">
+
+        <button mat-raised-button
+            (click)="onAddOrUpdate()">{{editmode ? 'update':'add'}}&nbsp;category in {{type}}</button>
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+    </div>
+</form>

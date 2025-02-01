@@ -1,0 +1,43 @@
+<div class="exhibition-details">
+    <div class="period">
+        {{exhibition?.start.seconds*1000|date}}&nbsp;-&nbsp;
+        {{exhibition?.end.seconds*1000|date}}
+    </div>
+    <div class="title_camera">
+        <div class="title">
+            {{exhibition?.title}}
+        </div>
+        @if(exhibition?.images.length){
+        <div class="camera-container">
+            <mat-icon class="camera"
+                (click)="onCamera()">camera_alt</mat-icon>
+        </div>
+        }
+    </div>
+    <div class="artist-names">
+        @for(artistName of exhibition?.artistNames; track artistName){
+        <div class="artist-name">
+            {{artistName}}
+        </div>
+        }
+    </div>
+    <div class="description"
+        [innerHTML]="exhibition?.description">
+    </div>
+    @if(authStore.isLoggedIn()) {
+    <div class="admin">
+        <div class="id">id:&nbsp;{{exhibition?.id}}</div>
+        <div class="buttons">
+            <button mat-icon-button
+                (click)="onDeleteExhibition(exhibition.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button
+                (click)="onEditExhibition(exhibition.id)">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    </div>
+    }
+
+</div>

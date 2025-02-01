@@ -1,0 +1,10 @@
+<section>
+    <img [ngClass]="{'selected-language': uiStore.selectedLanguage() === 'nl'}"
+        (click)="selectLanguage('nl')"
+        src="images\flags\nl-flag.png"
+        alt="">
+    <img [ngClass]="{'selected-language': uiStore.selectedLanguage() === 'en'}"
+        (click)="selectLanguage('en')"
+        src="images\flags\en-flag.png"
+        alt="">
+</section>

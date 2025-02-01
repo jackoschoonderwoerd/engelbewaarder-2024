@@ -1,0 +1,32 @@
+<div class="container"
+    (touchstart)="swipe($event, 'start')"
+    (touchend)="swipe($event, 'end')">
+
+    @if(images.length > 1) {
+    <button class="next"
+        mat-icon-button
+        (click)="updateIndex('next')">
+        <mat-icon>arrow_forward_ios</mat-icon>
+    </button>
+    }
+
+    @if(images.length > 1){
+    <button class="previous"
+        mat-icon-button
+        (click)="updateIndex('previous')">
+        <mat-icon>arrow_back_ios</mat-icon>
+    </button>
+    }
+    <button class="home"
+        mat-icon-button
+        (click)="onHome()">
+        <mat-icon>home</mat-icon>
+    </button>
+    @if(images.length > 1) {
+    <div class="indicator"
+        #indicator>{{index + 1}}/{{images.length}}</div>
+    }
+
+    <img [src]="images[index]?.filePath"
+        alt="">
+</div>

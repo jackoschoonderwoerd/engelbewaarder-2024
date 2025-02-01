@@ -1,0 +1,73 @@
+mat-sidenav-container,
+mat-sidenav-content,
+mat-sidenav {
+    background-color: var(--eb-blue);
+    height: 100%;
+}
+mat-sidenav-container {
+    height: 100%;
+    mat-sidenav {
+        padding: 1.5rem;
+        color: var(--eb-blue);
+        background-color: var(--eb-blue);
+        width: 80%;
+        min-width: 21em;
+        max-width: 30rem;
+    }
+    mat-sidenav-content {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "main";
+        height: 100%;
+
+        app-header {
+            grid-area: header;
+        }
+        main {
+            .router-container {
+                // border: 3px solid green;
+                // min-height: calc(100vh - 400px);
+            }
+            overflow: auto;
+            grid-area: main;
+            .footer-container {
+                // border: 3px solid red;
+            }
+        }
+    }
+}
+
+// mat-sidenav-container {
+//     display: flex;
+//     mat-sidenav {
+//         color: var(--eb-blue);
+//         background-color: var(--eb-bright-orange);
+//         min-width: 200px;
+//         max-width: 300px;
+//         padding: 1rem;
+//     }
+//     mat-sidenav-content {
+//         app-header {
+//             width: 100vw;
+//             z-index: 5000;
+//             background-color: var(--eb-blue);
+//             border-bottom: 1px solid var(--eb-orange);
+//             height: 56px;
+//             position: sticky;
+//             top: 0;
+//         }
+//         main {
+//             // border: 3px solid green;
+//             // margin-top: 56px;
+//             @media (min-width: 600px) {
+//                 // margin-top: 64px;
+//             }
+//             .router-container {
+//             }
+//             app-footer {
+//             }
+//         }
+//     }
+// }

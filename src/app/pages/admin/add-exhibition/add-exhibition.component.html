@@ -1,0 +1,94 @@
+<div class="page-container"
+    fxLayout
+    fxLayoutGap="1rem">
+
+    <form [formGroup]="form"
+        fxLayout="column"
+        fxLayoutGap="1rem">
+        <mat-form-field appearance="fill">
+            <mat-label>title</mat-label>
+            <input type="text"
+                matInput
+                formControlName="title">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate
+                    formControlName="start"
+                    placeholder="Start date">
+                <input matEndDate
+                    formControlName="end"
+                    placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix
+                [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+
+
+        <div class="artist-names"
+            formArrayName="artistNames">
+            @for(artistNamesControl of form.get('artistNames')?.controls;track artistNamesControl; let i = $index) {
+            <div class="artist-name">
+                <mat-form-field>
+                    <mat-label>artist name</mat-label>
+                    <input type="text"
+                        matInput
+                        [formControlName]="i">
+                </mat-form-field>
+                <mat-icon (click)="removeName(i)">delete</mat-icon>
+            </div>
+
+            }
+            <button color="warn"
+                mat-raised-button
+                type="button"
+                (click)="onAddArtistName()">add artist name
+            </button>
+        </div>
+
+        <mat-form-field appearance="fill">
+            <mat-label>description</mat-label>
+            <textarea rows="5"
+                type="text"
+                matInput
+                formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="buttons">
+            <button color="warn"
+                mat-raised-button
+                (click)="onAddExhibition()">
+                {{!editmode ? 'add exhibition' : 'update exhibition'}}
+
+            </button>
+            <button type="button"
+                mat-raised-button
+                (click)="onCancel($event)">cancel</button>
+        </div>
+
+    </form>
+
+    @if(editmode && exhibition) {
+    <div class="ebImages">
+        @for(ebImage of exhibition.images;track ebImage.filename; let i = $index) {
+        <app-image-details [ebImage]="ebImage"
+            [fromComponent]="'exhibitions'"
+            [exhibitionTitle]="exhibition.title"
+            [exhibitionId]="exhibition.id"
+            [index]="i">
+        </app-image-details>
+        }
+    </div>
+    <app-add-image [exhibitionTtile]="exhibition.title"
+        [storagePath]="'exhibitions-2024' + '/' + exhibition.id"
+        [collectionId]="exhibition.id"
+        (imageAdded)="imageAdded()"></app-add-image>
+
+    }
+    @if(!editmode){
+    <p class="non-edit-notice">add your images after saving the exhibition</p>
+    }
+    >
+</div>

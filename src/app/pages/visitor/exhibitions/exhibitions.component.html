@@ -1,0 +1,21 @@
+<div class="exhibitions">
+
+    @for(exhibition of exhibitions; track exhibition.id) {
+
+    @if(exhibition.title !== 'photos engelbewaarder' && !authStore.isLoggedIn()) {
+    <app-exhibition [exhibition]="exhibition"></app-exhibition>
+    }
+
+    @if(authStore.isLoggedIn()){
+    <app-exhibition [exhibition]="exhibition"></app-exhibition>
+    }
+
+    }
+
+    @if(authStore.isLoggedIn()) {
+    <button class="add-exhibition"
+        mat-raised-button
+        (click)="onAddExhibition()">add exhibition</button>
+    }
+
+</div>

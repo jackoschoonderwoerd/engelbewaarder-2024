@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./styles/variables";
+@use "./styles/mixins";
+@use "./styles/engelbewaarder";
+
+html,
+body {
+    height: 100vh;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+* {
+    box-sizing: border-box;
+    letter-spacing: 1.1px;
+}
+.mat-mdc-dialog-container {
+    --mdc-dialog-container-shape: 5px;
+}

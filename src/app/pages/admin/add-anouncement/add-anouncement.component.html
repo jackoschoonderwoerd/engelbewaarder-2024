@@ -1,0 +1,53 @@
+<main>
+    <div class="left">
+        <form [formGroup]="form">
+            <div class="text-input">
+                <mat-form-field>
+                    <mat-label>dutch HTML</mat-label>
+                    <textarea matInput
+                        (input)="anouncementNlChanged()"
+                        [rows]="rows"
+                        formControlName="anouncementNl"></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>english HTML</mat-label>
+                    <textarea (input)="anouncementEnChanged($event)"
+                        [rows]="rows"
+                        matInput
+                        formControlName="anouncementEn"></textarea>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="date-picker">
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input formControlName="startDate"
+                        matStartDate
+                        placeholder="Start date">
+                    <input matEndDate
+                        formControlName="endDate"
+                        placeholder="End date">
+                </mat-date-range-input>
+                <mat-datepicker-toggle matIconSuffix
+                    [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <div class="buttons">
+                <button mat-raised-button
+                    type="button"
+                    (click)="submit()">submit</button>
+                <button mat-raised-button
+                    type="button"
+                    (click)="cancel()">cancel</button>
+            </div>
+
+            <button mat-raised-button
+                (click)="previewDialog()">preview modal</button>
+        </form>
+
+    </div>
+    <div class="previews">
+        <app-preview-html [html]="anouncementNl" />
+        <app-preview-html [html]="anouncementEn" />
+
+    </div>
+</main>

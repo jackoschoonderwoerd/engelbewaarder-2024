@@ -1,0 +1,53 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.53rem;
+    padding-left: 1rem;
+
+    border: 1px solid white;
+    .consumption-info {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+        .name_description {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            .name {
+                text-transform: uppercase;
+                display: flex;
+                gap: 1rem;
+            }
+            .description {
+                padding-left: 1rem;
+            }
+        }
+        .vessel_price {
+            display: flex;
+            gap: 1rem;
+            .vessel {
+            }
+            .price {
+                // border: 1px solid white;
+                width: 3.5rem;
+                display: flex;
+                justify-content: end;
+            }
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        button {
+            background-color: var(--eb-orange);
+            color: var(--eb-blue);
+        }
+    }
+}
+hr {
+    padding: 0;
+    margin: 0;
+}

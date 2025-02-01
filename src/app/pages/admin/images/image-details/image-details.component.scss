@@ -1,0 +1,23 @@
+.image {
+    color: var(--eb-bright-orange);
+    padding: 0.3rem;
+    border: 1px solid var(--eb-orange);
+    width: 80%;
+    font-size: 0.8rem;
+    img {
+        width: 100%;
+    }
+    .image-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            button {
+                background-color: var(--eb-bright-orange);
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+.exhibition-details {
+    border-top: 3px solid var(--eb-orange);
+    padding: 1rem;
+    color: var(--eb-bright-orange);
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .title_camera {
+        display: flex;
+        gap: 1rem;
+        .title {
+            text-transform: uppercase;
+            padding: 0.3rem 0.5rem;
+            border: 1px solid var(--eb-orange);
+            width: fit-content;
+            border-radius: 2px;
+        }
+        .camera-container {
+            // border: 1px solid white;
+            display: flex;
+            align-items: center;
+        }
+    }
+    .admin {
+        border: 1px solid var(--eb-orange);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            button {
+                background-color: var(--eb-orange);
+                color: var(--eb-blue);
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+<main>
+    <app-select-language></app-select-language>
+    <div class="flags">
+
+    </div>
+    @if(uiStore.selectedLanguage() === 'nl') {
+    <mat-dialog-content [innerHTML]="anouncement?.anouncementNl">
+    </mat-dialog-content>
+    }
+    @if(uiStore.selectedLanguage() === 'en') {
+    <mat-dialog-content [innerHTML]="anouncement?.anouncementEn"></mat-dialog-content>
+    }
+
+
+</main>

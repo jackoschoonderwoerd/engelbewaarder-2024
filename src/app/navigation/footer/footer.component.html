@@ -1,0 +1,125 @@
+<main>
+
+    <div class="left footer-block">
+        <div class="footer-header">
+            Contact
+        </div>
+        <div class="name">{{companyStore.name()}}</div>
+        <div class="address">{{companyStore.address()}}</div>
+        <div class="zip-code_city">
+            <div class="zip-code">{{companyStore.zipCode()}}</div>
+            <div class="city">{{companyStore.city()}}</div>
+        </div>
+        <div class="telephone">{{companyStore.telephone()}}</div>
+        <div class="email">{{companyStore.email()}}</div>
+        <div class="social-media">
+            <a class="instagram"
+                href="https://www.instagram.com/cafedeengelbewaarder/"
+                target="_blank">
+                <img src="/images/social-media/instagram_icon_138461.png"
+                    alt="Instagram">
+            </a>
+
+            <a class="facebook"
+                href="https://www.facebook.com/cafedeengelbewaarder"
+                target="_blank">
+                <img src="/images/social-media/1200px-Facebook_icon.svg.png"
+                    alt="Facebook">
+            </a>
+
+        </div>
+    </div>
+    <div class="middle footer-block">
+        <div class="footer-header">
+            @if(uiStore.selectedLanguage() === 'nl')
+            {
+            Openingstijden
+            }
+            @if(uiStore.selectedLanguage() === 'en')
+            {
+            Opening Hours
+            }
+
+        </div>
+        <div class="">
+            @if(uiStore.selectedLanguage() === 'nl')
+            {
+            <span>Wij zijn dagelijks geopend van</span>
+            }
+            @if(uiStore.selectedLanguage() === 'en')
+            {
+            <span>We are opened daily from</span>
+            }
+            &nbsp;{{companyStore.timeWeekdayOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ? 'tot' : 'until'}}&nbsp;{{companyStore.timeWeekdayClosed()}}
+        </div>
+        <div class="">
+            @if(uiStore.selectedLanguage() === 'nl')
+            {
+            <span>Op vrijdag en zaterdag van</span>
+            }
+            @if(uiStore.selectedLanguage() === 'en')
+            {
+            <span>On Fridays and Saturdays from</span>
+            }
+            &nbsp;{{companyStore.timeWeekendOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ? 'tot' : 'until'}}&nbsp;{{companyStore.timeWeekendClosed()}}
+        </div>
+        <div class="">
+            @if(uiStore.selectedLanguage() === 'nl')
+            {
+            <span>Op zondag en maandag zijn wij open van </span>
+            }
+            @if(uiStore.selectedLanguage() === 'en')
+            {
+            <span>On Sundays and Mondays we are open from </span>
+            }
+            &nbsp;{{companyStore.timeWeekdayOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ? 'tot' : 'until'}}&nbsp;{{companyStore.timeClosedEarly()}}</div>
+        <div class="">Lunch: &nbsp;{{companyStore.lunchStart()}}&nbsp;-&nbsp;{{companyStore.lunchEnd()}}</div>
+        <div class="">Snacks: &nbsp;{{companyStore.lunchStart()}}&nbsp;-&nbsp;{{companyStore.lunchEnd()}}</div>
+        <div class="">Diner: &nbsp;{{companyStore.dinnerStart()}}&nbsp;-&nbsp;{{companyStore.dinnerEnd()}}</div>
+        <br>
+        @if(uiStore.selectedLanguage() === 'nl')
+        {
+        <div class=""> Beste gast, onze producten kunnen allergenen bevatten.</div>
+        }
+        @if(uiStore.selectedLanguage() === 'en')
+        {
+        <div class="">Dear guest, our products may contain allergens. </div>
+        }
+
+
+
+
+
+    </div>
+    <div class="right footer-block">
+        <div class="footer-header">
+            @if(uiStore.selectedLanguage() === 'nl')
+            {
+            Jazz op zondag
+            }
+            @if(uiStore.selectedLanguage() === 'en')
+            {
+            Jazz on Sundays
+            }
+
+        </div>
+        @if(uiStore.selectedLanguage() === 'nl')
+        {
+        <p>Behalve juli en augustus jamt Jazzengel elke zondag van {{companyStore.jazzStart()}} tot {{companyStore.jazzEnd()}}.</p>
+        }
+        @if(uiStore.selectedLanguage() === 'en')
+        {
+        <p>Except for July and August Jazzengel jams every Sunday from {{companyStore.jazzStart()}} until {{companyStore.jazzEnd()}}.</p>
+        }
+        @if(uiStore.selectedLanguage() === 'nl')
+        {
+        <p>Ga naar de website van <a href="www.jazzengel.nl">JAZZENGEL</a> voor meer informatie en het programma. </p>
+        }
+        @if(uiStore.selectedLanguage() === 'en')
+        {
+        <p>For more information about the program visit: <a href="www.jazzengel.nl">JAZZENGEL</a></p>
+        }
+
+
+    </div>
+</main>

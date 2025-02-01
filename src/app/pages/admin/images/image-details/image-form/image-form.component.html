@@ -1,0 +1,39 @@
+<form [formGroup]="form">
+    <div class="header">
+        <div mat-dialog-title>{{ebImage.title}}</div>
+        <div mat-dialog-title>{{ebImage.filename}}</div>
+    </div>
+
+    <mat-form-field>
+        <mat-label>title</mat-label>
+        <input type="text"
+            matInput
+            formControlName="title">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>artist name</mat-label>
+        <input type="text"
+            matInput
+            formControlName="artistName">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>copyright owner</mat-label>
+        <input type="text"
+            matInput
+            formControlName="copyrightOwner">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>price</mat-label>
+        <input type="number"
+            matInput
+            formControlName="price">
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button
+            (click)="onSubmit()">submit</button>
+        <button mat-raised-button
+            (click)="onClearForm()">clear form</button>
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+    </div>
+</form>

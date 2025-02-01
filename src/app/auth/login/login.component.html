@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+    <div class="header">login form, admin only</div>
+    <mat-form-field>
+        <mat-label>email</mat-label>
+        <input type="text"
+            formControlName="email"
+            matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>password</mat-label>
+        <input type="text"
+            formControlName="password"
+            matInput>
+    </mat-form-field>
+    <div class="buttons">
+
+        <button mat-raised-button
+            (click)="onSubmit()">submit</button>
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+    </div>
+</form>

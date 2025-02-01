@@ -1,0 +1,57 @@
+<main>
+    @if(authStore.isLoggedIn()) {
+
+    <!-- <div class="header">consumptions component! - type: {{type}} - basePath: {{basePath}}</div> -->
+    <button class="add-category-btn"
+        mat-raised-button
+        (click)="onAddCategory()">add category to {{type}}</button>
+    }
+    <div class="categories">
+        @for(category of categories;track category.id) {
+        <div class="category">
+            @if(category.headerVisibleToVisitor || authStore.isLoggedIn()) {
+            <div class="category-info">
+                <div class="name">{{uiStore.selectedLanguage() === 'nl' ? category.nameNl:category.nameEn}}</div>
+                @if(authStore.isLoggedIn()){
+                <div class="buttons">
+                    <button mat-icon-button
+                        (click)="onEditCategory(category.id)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button
+                        (click)="onDeleteCategory(category.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                }
+            </div>
+            }
+            <div class="consumptions">
+                @for(
+                consumption of category.consumptions;
+                track consumption.nameEn;
+                let index=$index;
+                let first = $first;
+                let last=$last) {
+                <div class="consumption">
+                    <app-consumption [consumption]="consumption"
+                        [index]="index"
+                        [first]="first"
+                        [last]="last"
+                        [categoryId]="category.id"
+                        [type]="type"></app-consumption>
+                </div>
+                }
+            </div>
+            @if(authStore.isLoggedIn()) {
+
+            <button class="add-consumption-btn"
+                mat-raised-button
+                (click)="onAddConsumption(category.id)">add consumption to {{category.nameEn}}</button>
+
+
+            }
+        </div>
+        }
+    </div>
+</main>

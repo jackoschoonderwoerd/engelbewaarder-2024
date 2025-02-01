@@ -1,0 +1,27 @@
+<div class="background-image">
+    <div class="banner">
+        <h3 class="banner-header">
+            {{uiStore.selectedLanguage() === 'nl' ?'KEUKEN':'KITCHEN'}}
+        </h3>
+
+        <div class="banner-content">
+            <div class="">
+                {{uiStore.selectedLanguage() === 'nl' ?'De keuken is 7 dagen per week geopend.':'Our kitchen is opened 7 days a week.'}}
+            </div>
+            <br>
+            <div class="">
+
+                Lunch: {{companyStore.lunchStart() }}{{uiStore.selectedLanguage() === 'nl' ?' tot':' until'}} {{companyStore.lunchEnd()}}
+            </div>
+            <div class="">
+
+                {{uiStore.selectedLanguage() === 'nl' ?'Diner':'Dinner'}}:
+                {{companyStore.dinnerStart() }}{{uiStore.selectedLanguage() === 'nl' ?' tot':' until'}} {{companyStore.dinnerEnd()}}
+            </div>
+            <div class="">
+
+                Snacks: {{companyStore.snacksStart() }}{{uiStore.selectedLanguage() === 'nl' ?' tot':' until'}} {{companyStore.snacksEnd()}}
+            </div>
+        </div>
+    </div>
+</div>

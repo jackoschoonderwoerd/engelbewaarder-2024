@@ -1,0 +1,16 @@
+:host {
+    padding: 1rem;
+    width: 100%;
+    display: grid;
+    // grid-template-columns: 4fr 1fr;
+    // grid-template-columns: auto;
+    gap: 1rem;
+    .exhibitions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+        gap: 1rem;
+    }
+    .add-exhibition {
+        // justify-content: flex-end;
+    }
+}

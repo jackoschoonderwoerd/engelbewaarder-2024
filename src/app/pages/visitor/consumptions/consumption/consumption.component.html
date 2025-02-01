@@ -1,0 +1,47 @@
+<main [style]="authStore.isLoggedIn() ? 'border:1px solid white': 'border:none'">
+    <div class="consumption-info">
+        <div class="name_description">
+
+            <div class="name">{{uiStore.selectedLanguage() === 'nl'? consumption.nameNl:consumption.nameEn}}</div>
+
+
+            <div class="description">{{uiStore.selectedLanguage() === 'nl'? consumption.descriptionNl:consumption.descriptionEn}}</div>
+        </div>
+        <div class="vessel_price">
+            <div class="vessel">
+                @if(consumption.vessel && consumption.vessel === 'glass') {
+                <fa-icon [icon]="faWineGlassEmpty"></fa-icon>
+                }
+                @if(consumption.vessel && consumption.vessel === 'bottle'){
+
+                <fa-icon [icon]="faBottleDroplet"></fa-icon>
+                }
+                <i class="fa-solid fa-bottle-droplet"></i>
+            </div>
+            <div class="price">{{consumption.price|currency:"EUR"}}</div>
+        </div>
+    </div>
+    @if(authStore.isLoggedIn()) {
+    <div class="buttons">
+        <button mat-icon-button
+            (click)="onEdit()">
+            <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button
+            (click)="onDelete()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button [style]="first ? 'visibility:hidden':'visible'"
+            mat-icon-button
+            (click)="onMove('up')">
+            <mat-icon>arrow_upward</mat-icon>
+        </button>
+        <button [style]="last ? 'visibility:hidden':'visible'"
+            mat-icon-button
+            (click)="onMove('down')">
+            <mat-icon>arrow_downward</mat-icon>
+        </button>
+    </div>
+    }
+</main>
+<hr>

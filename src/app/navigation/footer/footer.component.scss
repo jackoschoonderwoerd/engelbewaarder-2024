@@ -1,0 +1,38 @@
+main {
+    padding: 0.5rem;
+    width: 100%;
+    display: flex;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 1rem;
+    flex-wrap: wrap;
+    .footer-block {
+        // max-width: calc(100vw - 1rem);
+        min-width: 350px;
+        flex: 1;
+        padding: 1rem;
+        background-color: var(--eb-orange);
+        .footer-header {
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+    }
+    .left {
+        .social-media {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            .instagram {
+                img {
+                    width: 3rem;
+                }
+            }
+            .facebook {
+                img {
+                    width: 3rem;
+                }
+            }
+        }
+    }
+}

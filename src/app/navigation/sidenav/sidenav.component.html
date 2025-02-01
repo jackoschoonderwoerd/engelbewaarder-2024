@@ -1,0 +1,33 @@
+<ul>
+    <li routerLink="home"
+        class="list-item-home">
+        <a (click)="onLinkSelected('home')">
+            <mat-icon>home</mat-icon>
+        </a>
+    </li>
+    @for(item of navListItems; track item) {
+    <li class="list-item">
+        <a (click)="onLinkSelected(item.english)">
+            @if(uiStore.selectedLanguage() === 'nl') {
+            {{item.dutch}}
+            }
+            @if(uiStore.selectedLanguage() === 'en') {
+            {{item.english}}
+            }
+        </a>
+    </li>
+    }
+    @if(!authStore.isLoggedIn()) {
+    <li (click)="onLogin()">
+        <mat-icon>login</mat-icon>
+    </li>
+    }
+    @if(authStore.isLoggedIn()) {
+    <li>
+        <mat-icon (click)="authStore.logout()">logout</mat-icon>
+    </li>
+    }
+    <li class="list-item-close">
+        <mat-icon (click)="onClose()">close</mat-icon>
+    </li>
+</ul>

@@ -1,0 +1,11 @@
+<div class="beers">
+    @for(beer of beers; track beer.id) {
+    <app-beer-details [index]="i"
+        [beer]="beer"></app-beer-details>
+    }
+    @if(authStore.isLoggedIn()){
+    <button mat-raised-button
+        (click)="onAddBeer()">add beer</button>
+    }
+</div>
+<!-- <app-add-beer (arrayChanged)="onArrayChanged()"></app-add-beer> -->

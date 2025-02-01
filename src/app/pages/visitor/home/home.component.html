@@ -1,0 +1,91 @@
+<div id="top"></div>
+<section>
+    <div class="background-image">
+        <div class="banner">
+            <p class="banner-header">HET AMSTERDAMSCH LITTERAIR CAFE</p>
+            <div class="banner-content"
+                fxLayout>
+                <!-- <img src="'./../../../assets/images/uithangbord3.svg" alt=""> -->
+                <div class="capital">D</div>
+                <div class="non-capital">E</div>
+                <div class="capital">E</div>
+                <div class="non-capital">NGELBEWAARDER</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content">
+
+        <div class="openingstijden"
+            fxLayout="column"
+            fxLayoutAlign="center center">
+            <div class="tijden">
+                <div class="openingHours">
+                    <div class="opening-hours-weekdays">
+                        @if(uiStore.selectedLanguage() === 'nl') {
+                        Het café is iedere dag open van
+                        }
+                        @if(uiStore.selectedLanguage() === 'en') {
+                        Our cafe is opened daily from
+                        }
+                        {{companyStore.timeWeekdayOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ?'tot':'until'}}&nbsp;
+                        {{companyStore.timeWeekdayClosed()}}
+                    </div>
+                    <div class="opening-hours-weekend">
+                        @if(uiStore.selectedLanguage() === 'nl') {
+                        Op vrijdag en zaterdag van
+                        }
+                        @if(uiStore.selectedLanguage() === 'en') {
+                        On Fridays and Saturdays from
+                        }
+                        {{companyStore.timeWeekendOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ?'tot':'until'}}&nbsp;
+                        {{companyStore.timeWeekendClosed()}}
+                    </div>
+                </div>
+            </div>
+            <div class="reserveren">
+
+                @if(uiStore.selectedLanguage() === 'nl') {
+                <p>Als u binnen wilt eten kunt u reserveren.</p>
+                }
+                @if(uiStore.selectedLanguage() === 'en') {
+                <p>For reservations please call</p>
+                }
+                <p>
+                    {{companyStore.telephone()}}
+                </p>
+                @if(uiStore.selectedLanguage() === 'nl') {
+                <p>Het is niet mogelijk om op het terras te reserveren maar er is vast wel een plekje te
+                    vinden. Hopelijk tot snel!
+                </p>
+                }
+                @if(uiStore.selectedLanguage() === 'en') {
+                <p>
+                    It's not possible to make
+                    resevations for terrace seats. Hope to see you soon!
+                </p>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="menu">
+            <ul>
+                @for(item of navListItems; track item) {
+                <li>
+                    <a [routerLink]="['/', { outlets: { primary: item.english } }]">
+                        @if(uiStore.selectedLanguage() === 'nl') {
+                        {{item.dutch}}
+                        }
+                        @if(uiStore.selectedLanguage() === 'en') {
+                        {{item.english}}
+                        }
+                    </a>
+                </li>
+                }
+            </ul>
+        </div>
+
+    </div>
+</section>

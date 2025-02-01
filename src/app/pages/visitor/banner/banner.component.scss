@@ -1,0 +1,72 @@
+.background-image {
+    // background-image: url('./../../assets/images/terras-boot-vanaf-cafe-\ W-480px.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 40% 60%;
+    height: 70vh;
+
+    @media (max-width: 480px) {
+        height: 50vh;
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-481.jpg");
+    }
+
+    @media (max-width: 480px) {
+        height: 50vh;
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-481.jpg");
+    }
+
+    @media (min-width: 481px) and (max-width: 767px) {
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-767.jpg");
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-767.jpg");
+    }
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-1024.jpg");
+    }
+
+    @media (min-width: 1281px) {
+        background-image: url("/images/backgrounds/bar/engel-bar-2-1-1280.jpg");
+    }
+
+    .banner {
+        top: 10vh;
+        left: 5vw;
+        width: fit-content;
+        max-width: 90vw;
+        position: relative;
+        background-color: white;
+        // color: var(--text-color-bright-orange);
+        padding: 25px;
+        opacity: 0.8;
+        border: 2px solid var(--eb-orange);
+
+        .banner-header,
+        .banner-content {
+            // color: var(--text-color-bright-orange);
+            font-size: 0.8rem;
+
+            @media (max-width: 480px) {
+                font-size: 0.9rem;
+            }
+
+            @media (min-width: 481px) and (max-width: 767px) {
+                font-size: 1.2rem;
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                font-size: 1.4rem;
+            }
+
+            @media (min-width: 1025px) and (max-width: 1350px) {
+                font-size: 1.6rem;
+            }
+
+            @media (min-width: 1351px) {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}

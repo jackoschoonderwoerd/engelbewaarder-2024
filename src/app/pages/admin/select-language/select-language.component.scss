@@ -1,0 +1,13 @@
+section {
+    display: flex;
+    gap: 1rem;
+    // border: 1px solid white;
+    justify-content: end;
+    img {
+        width: 2rem;
+        height: 1.5rem;
+    }
+    .selected-language {
+        border: 3px solid var(--eb-orange);
+    }
+}

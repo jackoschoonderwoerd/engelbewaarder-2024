@@ -1,0 +1,30 @@
+<main [mat-dialog-close]>
+    <div class="title"
+        mat-dialog-title>{{beer.name}}</div>
+
+    <mat-dialog-content>
+        <div class="description"
+            [innerHTML]="beer.description">
+        </div>
+        <div class="vessel_volume_price">
+            <div class="vessel_volume">
+                <div class="vessel">
+                    @if(beer.vessel === 'glass') {
+                    <fa-icon [icon]="faWineGlassEmpty"></fa-icon>
+                    }
+                    @if(beer.vessel === 'bottle'){
+
+                    <fa-icon [icon]="faBottleDroplet"></fa-icon>
+                    }
+                    <i class="fa-solid fa-bottle-droplet"></i>
+                </div>
+                <div class="cl-volume">{{beer.clVolume}}&nbsp;cl.</div>
+            </div>
+            <div class="alcohol-percentage">alc.:&nbsp;{{beer.alcoholPercentage}}&nbsp;%</div>
+            <div class="price">{{beer.price|currency:"EUR"}}</div>
+        </div>
+        <div class="close">
+            <mat-icon>close</mat-icon>
+        </div>
+    </mat-dialog-content>
+</main>

@@ -1,0 +1,66 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>id</mat-label>
+        <input type="text"
+            readonly="true"
+            matInput
+            formControlName="id">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>seq no</mat-label>
+        <input type="number"
+            matInput
+            formControlName="seqNo">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>name</mat-label>
+        <input type="text"
+            matInput
+            formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>description</mat-label>
+        <textarea type="text"
+            matInput
+            formControlName="description">
+        </textarea>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>select vessel</mat-label>
+        <mat-select formControlName="vessel">
+            @for (vessel of vessels; track vessel) {
+            <mat-option [value]="vessel">{{vessel}}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>alcohol percentage</mat-label>
+        <input type="number"
+            matInput
+            formControlName="alcoholPercentage">
+
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>cl volume</mat-label>
+        <input type="number"
+            matInput
+            formControlName="clVolume">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>price</mat-label>
+        <input type="number"
+            matInput
+            formControlName="price">
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button
+            (click)="onSubmit()">{{!editmode ? 'add': 'update'}}</button>
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+    </div>
+
+</form>

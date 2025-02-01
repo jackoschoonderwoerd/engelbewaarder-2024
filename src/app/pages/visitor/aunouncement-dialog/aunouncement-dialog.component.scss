@@ -1,0 +1,18 @@
+main {
+    background-color: var(--eb-blue);
+    border: 3px solid var(--eb-orange);
+    padding: 1rem;
+
+    color: var(--eb-bright-orange);
+    mat-dialog-content {
+    }
+    mat-dialog-actions {
+        display: flex;
+        justify-content: end;
+        button {
+            mat-icon {
+                color: var(--eb-bright-orange);
+            }
+        }
+    }
+}

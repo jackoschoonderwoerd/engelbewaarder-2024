@@ -1,0 +1,17 @@
+<div class="exhibition">
+    <div class="visitor">
+
+        <div class="period">
+            <div class="start">{{exhibition.start.seconds*1000|date}}</div>&nbsp;-&nbsp;
+            <div class="start">{{exhibition.end.seconds*1000|date}}</div>
+        </div>
+        <div class="info_title">
+            <fa-icon class="info"
+                (click)="onDetails(exhibition)"
+                [icon]="faCircleInfo"></fa-icon>
+
+            <div class="title">{{exhibition.title}}</div>
+
+        </div>
+    </div>
+</div>
