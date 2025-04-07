@@ -1,5 +1,7 @@
-<div class="background-image">
-    <div class="banner">
+<div class="banner-container"
+    [style]="{'background-image': 'url(' + '/images/backgrounds/backgrounds_large/' + getBackgroundImageSrc() + ')'}"
+    [ngClass]>
+    <div class="banner-text">
         <h3 class="banner-header">
             {{uiStore.selectedLanguage() === 'nl' ?'KEUKEN':'KITCHEN'}}
         </h3>

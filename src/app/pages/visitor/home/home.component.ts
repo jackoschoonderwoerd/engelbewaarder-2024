@@ -3,6 +3,7 @@ import { CompanyStore } from '../../../services/company.store';
 import { UiStore } from '../../../services/ui.store';
 import { NavigationService, NavListItem } from '../../../navigation/navigation.service';
 import { RouterModule } from '@angular/router';
+import { CrossFadeComponent } from '../shared/cross-fade/cross-fade.component';
 
 
 @Component({

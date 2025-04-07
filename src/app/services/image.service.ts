@@ -5,10 +5,10 @@ import { ImageDownloadUrlFilename } from '../pages/admin/models/image_downloadUr
 @Injectable({
     providedIn: 'root'
 })
-export class ImageService {
-    storage = inject(StorageService)
 
-    constructor() { }
+export class ImageService {
+
+    storage = inject(StorageService)
 
     storeImageFiles(exhibitionTitle: string, imageFiles: File[]): Promise<unknown> {
         const promise = new Promise((resolve, reject) => {

@@ -29,7 +29,7 @@
             <div class="consumptions">
                 @for(
                 consumption of category.consumptions;
-                track consumption.nameEn;
+                track $index;
                 let index=$index;
                 let first = $first;
                 let last=$last) {
