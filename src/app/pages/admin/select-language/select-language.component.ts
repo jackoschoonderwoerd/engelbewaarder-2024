@@ -11,7 +11,8 @@ import { NgClass } from '@angular/common';
 export class SelectLanguageComponent {
     uiStore = inject(UiStore)
 
-    selectLanguage(selectedLanguage) {
+    selectLanguage(e: Event, selectedLanguage) {
+        e.stopPropagation()
         this.uiStore.selectLanguage(selectedLanguage)
     }
 }

@@ -19,11 +19,17 @@ import { AuthStore } from '../../../../auth/login/auth.store';
 import { MatDialog } from '@angular/material/dialog';
 import { BeerInfoComponent } from './beer-info/beer-info.component';
 import { ConfirmComponent } from '../../confirm/confirm.component';
+import { SelectLanguageComponent } from '../../select-language/select-language.component';
 
 
 @Component({
     selector: 'app-beer-details',
-    imports: [MatIconModule, CurrencyPipe, FontAwesomeModule],
+    imports: [
+        MatIconModule,
+        CurrencyPipe,
+        FontAwesomeModule,
+
+    ],
     templateUrl: './beer-details.component.html',
     styleUrl: './beer-details.component.scss'
 })

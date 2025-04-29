@@ -3,9 +3,16 @@
         mat-dialog-title>{{beer.name}}</div>
 
     <mat-dialog-content>
-        <div class="description"
-            [innerHTML]="beer.description">
+        @if(uiStore.selectedLanguage() === 'nl'){
+        <div class="descriptionNl"
+            [innerHTML]="beer.descriptionNl">
         </div>
+        }
+        @if(uiStore.selectedLanguage() === 'en') {
+        <div class="descriptionEn"
+            [innerHTML]="beer.descriptionEn">
+        </div>
+        }
         <div class="vessel_volume_price">
             <div class="vessel_volume">
                 <div class="vessel">
@@ -23,6 +30,7 @@
             <div class="alcohol-percentage">alc.:&nbsp;{{beer.alcoholPercentage}}&nbsp;%</div>
             <div class="price">{{beer.price|currency:"EUR"}}</div>
         </div>
+        <app-select-language></app-select-language>
         <div class="close">
             <mat-icon>close</mat-icon>
         </div>
