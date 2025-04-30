@@ -77,6 +77,6 @@ export const routes: Routes = [
             .then(c => c.LoginComponent)
     },
     {
-        path: '**', redirectTo: 'home', pathMatch: 'full'
+        path: '**', redirectTo: 'home'
     }
 ];

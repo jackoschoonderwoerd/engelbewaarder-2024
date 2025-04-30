@@ -18,7 +18,9 @@
                 }
                 <i class="fa-solid fa-bottle-droplet"></i>
             </div>
+            @if(consumption.price > 0){
             <div class="price">{{consumption.price|currency:"EUR"}}</div>
+            }
         </div>
     </div>
     @if(authStore.isLoggedIn()) {
