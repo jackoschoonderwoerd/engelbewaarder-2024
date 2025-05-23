@@ -21,7 +21,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         MatButtonModule,
         MatIconModule,
         CurrencyPipe,
-        FontAwesomeModule
+        FontAwesomeModule,
+        JsonPipe
     ],
     templateUrl: './consumption.component.html',
     styleUrl: './consumption.component.scss'
