@@ -22,21 +22,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         MatIconModule,
         CurrencyPipe,
         FontAwesomeModule,
-        JsonPipe
+
     ],
     templateUrl: './consumption.component.html',
     styleUrl: './consumption.component.scss'
 })
 export class ConsumptionComponent implements OnInit {
-    @Input() public consumption: Consumption;
-    @Input() private index: number;
-    @Input() public first: boolean;
-    @Input() public last: boolean;
-    @Input() private categoryId: string;
-    @Input() private type: string
+    @Input() public consumption!: Consumption;
+    @Input() private index!: number;
+    @Input() public first!: boolean;
+    @Input() public last!: boolean;
+    @Input() private categoryId!: string;
+    @Input() private type!: string
     uiStore = inject(UiStore);
     authStore = inject(AuthStore);
-    pathToCategory: string;
+    pathToCategory!: string;
     fs = inject(FirestoreService);
     sb = inject(SnackbarService);
     confirmService = inject(ConfirmService);
@@ -74,18 +74,19 @@ export class ConsumptionComponent implements OnInit {
             })
     }
 
-    onMove(direction) {
+    onMove(direction: string) {
         let newArray: Consumption[] = []
-        this.fs.getFieldInDocument(this.pathToCategory, 'consumptions')
+        this.fs.getFieldInDocument<Consumption[]>(this.pathToCategory, 'consumptions')
             .then((consumptionsArray: Consumption[]) => {
                 if (direction === 'up') {
-                    return newArray = this.arrayService.move(consumptionsArray, this.index, this.index - 1)
+                    return this.arrayService.move(consumptionsArray, this.index, this.index - 1)
                 } else if (direction === 'down') {
-                    return newArray = this.arrayService.move(consumptionsArray, this.index, this.index + 1)
+                    return this.arrayService.move(consumptionsArray, this.index, this.index + 1)
                 }
+                return consumptionsArray
 
             })
-            .then((newArray: Consumption[]) => {
+            .then((newArray) => {
                 return this.fs.updateField(this.pathToCategory, 'consumptions', newArray)
             })
             .then((res: any) => {

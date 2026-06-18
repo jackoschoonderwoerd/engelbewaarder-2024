@@ -43,7 +43,7 @@ const initialState: CompanyState = {
     snacksStart: '12:00',
     snacksEnd: '22:00',
     dinnerStart: '17:30',
-    dinnerEnd: '21:30',
+    dinnerEnd: '21:00',
     jazzStart: '16:30',
     jazzEnd: '19:00'
 }

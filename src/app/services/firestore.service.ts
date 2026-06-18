@@ -93,24 +93,24 @@ export class FirestoreService {
     }
 
 
-    deleteDoc(path): Promise<void> {
+    deleteDoc(path: string): Promise<void> {
         const docRef = doc(this.firestore, path)
         return deleteDoc(docRef);
     }
-    updateDoc(path: string, value): Promise<void> {
+    updateDoc(path: string, value: any): Promise<void> {
         const docRef = doc(this.firestore, path)
         return updateDoc(docRef, value)
     }
-    setDoc(path, object): Promise<void> {
+    setDoc(path: string, object: any): Promise<void> {
         const docRef = doc(this.firestore, path);
         return setDoc(docRef, object)
     }
-    getDoc(path): Observable<DocumentData> {
+    getDoc(path: string): Observable<DocumentData> {
         const docRef = doc(this.firestore, path)
         return docData(docRef, { idField: 'id' })
     }
 
-    async getDocAsync(path): Promise<DocumentData> {
+    async getDocAsync(path: string): Promise<DocumentData> {
         const docRef = doc(this.firestore, path)
         return docData(docRef)
     }
@@ -165,7 +165,7 @@ export class FirestoreService {
     //     const queryRef = query(collectionRef, where(field, '==', value))
     //     return collectionData(queryRef, { idField: 'id' })
     // }
-    getFieldInDocument(path, fieldName) {
+    getFieldInDocument<T>(path: string, fieldName: string): Promise<any> {
         const promise = new Promise((resolve, reject) => {
             const docRef = doc(this.firestore, path)
             onSnapshot(docRef, (docSnapshots) => {

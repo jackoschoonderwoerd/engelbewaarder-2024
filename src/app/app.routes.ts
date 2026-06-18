@@ -77,6 +77,10 @@ export const routes: Routes = [
             .then(c => c.LoginComponent)
     },
     {
+        path: 'apply', loadComponent: () => import('./pages/visitor/apply/apply.component')
+            .then(c => c.ApplyComponent)
+    },
+    {
         path: '**', redirectTo: 'home'
     }
 ];

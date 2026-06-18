@@ -1,0 +1,140 @@
+<form [formGroup]="form"
+    (keydown.enter)="$event.preventDefault()">
+    <div class="header">Leuk dat je bij ons zou willen komen werken!</div>
+    <div class="warning"><sub> Velden met een * zijn verplicht</sub></div>
+    <mat-form-field>
+        <mat-label>naam</mat-label>
+        <input type="text"
+            required="true"
+            formControlName="name"
+            matInput>
+    </mat-form-field>
+
+    <div class="address">
+        <mat-form-field class="street">
+            <mat-label>straat</mat-label>
+            <input type="text"
+                required="true"
+                formControlName="street"
+                matInput>
+        </mat-form-field>
+
+        <mat-form-field class="number">
+            <mat-label>num.</mat-label>
+            <input type="text"
+                required="true"
+                formControlName="street_number"
+                matInput>
+        </mat-form-field>
+    </div>
+
+    <div class="zipcode_city">
+        <mat-form-field class="zipcode">
+            <mat-label>postcode</mat-label>
+            <input type="text"
+                required="true"
+                formControlName="zipcode"
+                matInput>
+        </mat-form-field>
+
+        <mat-form-field class="city">
+            <mat-label>plaats</mat-label>
+            <input type="text"
+                required="true"
+                formControlName="city"
+                matInput>
+        </mat-form-field>
+    </div>
+
+    <mat-form-field>
+        <mat-label>telefoon</mat-label>
+        <input type="text"
+            required="true"
+            formControlName="phone"
+            matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>email</mat-label>
+        <input type="email"
+            required="true"
+            formControlName="email"
+            matInput>
+    </mat-form-field>
+
+    <div class="field-header">Waarom zou je bij ons willen werken?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <input type="text"
+            required="true"
+            formControlName="motivation"
+            matInput>
+    </mat-form-field>
+
+
+    <div class="field-header">Wil je achter de bar of in de keuken of allebei?</div>
+    <div class="preferences">
+
+        <mat-checkbox formControlName="kitchen"
+            class="example-margin">keuken
+        </mat-checkbox>
+
+        <mat-checkbox formControlName="bar"
+            class="example-margin">bar
+        </mat-checkbox>
+    </div>
+
+    <div class="field-header">Heb je horeca-ervaring?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <textarea matInput
+            required="true"
+            formControlName="catering_industry_experience"></textarea>
+    </mat-form-field>
+
+    <div class="field-header">Wat doe je verder (studie, sport, werk)?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <textarea matInput
+            required="true"
+            formControlName="other_activities"></textarea>
+    </mat-form-field>
+
+    <div class="field-header">Voor hoelang zoek je werk?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <textarea matInput
+            required="true"
+            formControlName="for_how_long"></textarea>
+    </mat-form-field>
+
+    <div class="field-header">Hoeveel uren zou je minimaal willen werken?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <input type="number"
+            formControlName="hours_per_week"
+            matInput
+            required="true">
+    </mat-form-field>
+
+    <div class="field-header">Heb je vakantie en/of festival plannen?</div>
+    <mat-form-field>
+        <mat-label></mat-label>
+        <textarea matInput
+            required="true"
+            formControlName="holliday_festival_plans"></textarea>
+    </mat-form-field>
+
+
+
+    <div class="buttons">
+
+        <button mat-raised-button
+            (click)="onCancel()">cancel</button>
+        <button mat-raised-button
+            [disabled]="form.invalid"
+            (click)="onSubmit()">send</button>
+    </div>
+
+
+</form>

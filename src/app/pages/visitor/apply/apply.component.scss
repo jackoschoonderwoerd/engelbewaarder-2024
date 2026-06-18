@@ -1,0 +1,54 @@
+form {
+    padding: 0.5rem;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    .header {
+        font-size: 1.3rem;
+        margin: auto;
+    }
+    .warning {
+        margin-bottom: 5px;
+    }
+    .address {
+        display: flex;
+        gap: 0.5rem;
+        .street {
+            flex-grow: 1;
+        }
+        .number {
+            width: 5rem;
+        }
+    }
+    .zipcode_city {
+        display: flex;
+        gap: 0.5rem;
+        .zipcode {
+            width: 7rem;
+        }
+        .city {
+            flex-grow: 1;
+        }
+    }
+    .preferences {
+        background-color: #cfd1db;
+        padding-left: 1rem;
+        border: 2px solid gray;
+        margin-bottom: 1rem;
+        .header {
+        }
+        display: flex;
+        align-items: center;
+    }
+    .buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .field-header {
+        margin-bottom: 3px;
+    }
+}
