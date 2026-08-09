@@ -52,8 +52,10 @@
                 @if(uiStore.selectedLanguage() === 'en') {
                 <p>For reservations please call</p>
                 }
-                <p>
-                    {{companyStore.telephone()}}
+                <p class="tel-paragraph">
+                    <a class="tel-link"
+                        [href]="'tel:' + companyStore.telephone() ">{{companyStore.telephone()}}</a>
+
                 </p>
                 @if(uiStore.selectedLanguage() === 'nl') {
                 <p>Het is niet mogelijk om op het terras te reserveren maar er is vast wel een plekje te

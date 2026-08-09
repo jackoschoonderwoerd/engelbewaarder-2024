@@ -10,7 +10,7 @@
             <div class="zip-code">{{companyStore.zipCode()}}</div>
             <div class="city">{{companyStore.city()}}</div>
         </div>
-        <div class="telephone">{{companyStore.telephone()}}</div>
+        <div class="telephone"><a [href]="'tel:' + companyStore.telephone() ">{{companyStore.telephone()}}</a> </div>
         <div class="email">{{companyStore.email()}}</div>
         <div class="social-media">
             <a class="instagram"

@@ -4,11 +4,13 @@ import { UiStore } from '../../../services/ui.store';
 import { NavigationService, NavListItem } from '../../../navigation/navigation.service';
 import { RouterModule } from '@angular/router';
 import { CrossFadeComponent } from '../shared/cross-fade/cross-fade.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
     selector: 'app-home',
-    imports: [RouterModule],
+    imports: [RouterModule, MatIconModule, MatButtonModule],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })
