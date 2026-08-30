@@ -17,6 +17,7 @@ export class ApplyService {
         {
             city: string
             email: string;
+            date_of_birth: string;
             motivation: string;
             name: string;
             street_number: string
@@ -35,5 +36,9 @@ export class ApplyService {
         console.log(this.functions);
         const fn = httpsCallable(this.functions, 'sendContactForm');
         return fn(data);
+    }
+
+    private returnString() {
+        return 'hi there'
     }
 }

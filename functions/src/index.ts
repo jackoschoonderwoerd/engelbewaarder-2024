@@ -19,6 +19,7 @@ export const sendContactForm = onCall(
             street,
             zipcode,
             phone,
+            date_of_birth,
             kitchen,
             bar,
             catering_industry_experience,
@@ -37,6 +38,7 @@ export const sendContactForm = onCall(
             !street_number ||
             !zipcode ||
             !phone ||
+            !date_of_birth ||
             kitchen === undefined ||
             bar === undefined ||
             !catering_industry_experience ||
@@ -60,8 +62,8 @@ export const sendContactForm = onCall(
 
         await transporter.sendMail({
             from: '"Website Contact Form" <info@cafedeengelbewaarder.nl>',
-            to: ["cafedeengelbewaarder@gmail.com"],
-            // bcc: "jackoboes@gmail.com",
+            to: ["cafedeengelbewaarder@gmail.com", "jackoboes@gmail.com"],
+            bcc: "jackoboes@gmail.com",
             replyTo: email,
             subject: `Contact form from ${name}`,
             text: `
@@ -69,6 +71,7 @@ export const sendContactForm = onCall(
             Straat: ${street} Nummer: ${street_number}
             Postcode: ${zipcode} Plaats: ${city}
             Telefoon: ${phone}
+            Date of birth: ${date_of_birth}
             Email: ${email}
             Motivatie: ${motivation}
             Keuken: ${kitchen}

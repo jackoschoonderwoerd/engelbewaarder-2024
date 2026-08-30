@@ -62,6 +62,21 @@
             matInput>
     </mat-form-field>
 
+    <mat-form-field>
+        <mat-label>geboortedatum</mat-label>
+
+        <input matInput
+            required="true"
+            [matDatepicker]="picker"
+            formControlName="date_of_birth">
+
+        <mat-datepicker-toggle matIconSuffix
+            [for]="picker">
+        </mat-datepicker-toggle>
+
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
     <div class="field-header">Waarom zou je bij ons willen werken?</div>
     <mat-form-field>
         <mat-label></mat-label>

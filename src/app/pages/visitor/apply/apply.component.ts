@@ -11,6 +11,10 @@ import { Router } from '@angular/router';
 import { SnackbarService } from '../../../services/snackbar.service';
 import { MatDialog } from '@angular/material/dialog';
 import { WarningComponent } from '../../admin/warning/warning.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ConfirmComponent } from '../../admin/confirm/confirm.component';
+import { ConfirmDialogComponent } from '../../admin/confirm-dialog/confirm-dialog.component';
 
 @Component({
     selector: 'app-apply',
@@ -20,7 +24,9 @@ import { WarningComponent } from '../../admin/warning/warning.component';
         MatFormFieldModule,
         MatInput,
         MatInputModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
     templateUrl: './apply.component.html',
     styleUrl: './apply.component.scss'
@@ -35,6 +41,7 @@ export class ApplyComponent {
     form = this.fb.group({
         city: [''],
         email: [''],
+        date_of_birth: [null],
         motivation: [''],
         name: [''],
         street_number: [''],
@@ -65,39 +72,30 @@ export class ApplyComponent {
             return;
         }
 
-        try {
-            const result = await this.applyService.send(this.form.getRawValue() as {
-                city: string;
-                email: string;
-                motivation: string;
-                name: string;
-                street_number: string;
-                street: string;
-                zipcode: string;
-                phone: string;
-                kitchen: boolean;
-                bar: boolean;
-                catering_industry_experience: string;
-                other_activities: string;
-                for_how_long: string;
-                hours_per_week: any;
-                holliday_festival_plans: string
-            });
+        const formData = this.form.getRawValue() as any;
 
+        if (formData.date_of_birth) {
+            formData.date_of_birth = this.formatDate(formData.date_of_birth);
+        }
+
+        console.log(formData);
+
+        // return
+
+        try {
+            const result = await this.applyService.send(formData);
 
             console.log('Function result:', result.data);
 
-            // this.snackBar.open('Message sent successfully', 'OK', {
-            //     duration: 3000,
-            // });
-            this.matDialog.open(WarningComponent, {
+            this.matDialog.open(ConfirmDialogComponent, {
                 data: {
                     message: 'Message sent successfully'
                 }
-            })
-            this.router.navigateByUrl('/home')
+            });
 
+            this.router.navigateByUrl('/home');
             this.form.reset();
+
         } catch (error) {
             console.error(error);
 
@@ -105,23 +103,67 @@ export class ApplyComponent {
                 data: {
                     message: 'Could not send message'
                 }
-            })
-            // this.snackBar.open('Could not send message', 'OK', {
-            //     duration: 3000,
-            // });
+            });
         }
-    }
-    onCancel() {
-        // console.log(this.form.dirty)
-        // if (this.form.dirty) {
-        //     console.log('dirty')
-        //     // this.sb.openSnackbar('Als je deze pagina verlaat verlies je alle reeds ingevulde informatie')
+
+        // try {
+        //     const result = await this.applyService.send(this.form.getRawValue() as {
+        //         city: string;
+        //         email: string;
+        //         date_of_birth: string;
+        //         motivation: string;
+        //         name: string;
+        //         street_number: string;
+        //         street: string;
+        //         zipcode: string;
+        //         phone: string;
+        //         kitchen: boolean;
+        //         bar: boolean;
+        //         catering_industry_experience: string;
+        //         other_activities: string;
+        //         for_how_long: string;
+        //         hours_per_week: any;
+        //         holliday_festival_plans: string
+        //     });
+
+
+        //     console.log('Function result:', result.data);
+
         //     this.matDialog.open(WarningComponent, {
         //         data: {
-        //             message: 'Als je deze pagina verlaat verlies je alle reeds ingevulde informatie'
+        //             message: 'Message sent successfully'
+        //         }
+        //     })
+        //     this.router.navigateByUrl('/home')
+
+        //     this.form.reset();
+        // } catch (error) {
+        //     console.error(error);
+
+        //     this.matDialog.open(WarningComponent, {
+        //         data: {
+        //             message: 'Could not send message'
         //         }
         //     })
         // }
+    }
+
+    private formatDate(date: Date): string {
+
+        const months = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+        const day = String(date.getDate()).padStart(2, '0');
+        // const month = String(date.getMonth() + 1).padStart(2, '0');
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+
+        return `${day}-${month}-${year}`;
+    }
+
+
+    onCancel() {
         this.router.navigateByUrl('/home')
     }
 }

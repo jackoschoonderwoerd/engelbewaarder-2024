@@ -14,6 +14,7 @@ import { UiStore } from './services/ui.store';
 import { take } from 'rxjs';
 import { AnouncementService } from './pages/admin/add-anouncement/anouncement.service';
 import { SwUpdate } from '@angular/service-worker';
+import { UpdateService } from './services/update.service';
 
 @Component({
     selector: 'app-root',
@@ -29,6 +30,7 @@ import { SwUpdate } from '@angular/service-worker';
     styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, AfterViewInit {
+    private updateService = inject(UpdateService);
     title = 'engelbewaarder-2024';
     private authStore = inject(AuthStore)
     // fs = inject(FirestoreService);
@@ -38,11 +40,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     // @ViewChild('header') header: ElementRef;
     anouncementService = inject(AnouncementService)
     // swUpdate = inject(SwUpdate)
-    @ViewChild('routerContainer') private routerContainer: ElementRef;
-    @ViewChild('footerContainer') private footerContainer: ElementRef;
-    @ViewChild('header') private header: ElementRef;
+    @ViewChild('routerContainer') private routerContainer?: ElementRef;
+    @ViewChild('footerContainer') private footerContainer?: ElementRef;
+    @ViewChild('header') private header!: ElementRef;
     // @ViewChild('sidenavContent') private sidenavContent: any;
-    routerMinHeight: number
+    routerMinHeight: number = 0
 
     @HostListener('window:resize', ['$event']) onResizeHandler(event: any): void {
         console.log('height: ', event.target.innerHeight);
@@ -63,7 +65,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.uiStore.setShowBanner(url)
             }
         })
-        onAuthStateChanged(this.afAuth, (user: FirebaseUser) => {
+        onAuthStateChanged(this.afAuth, (user: FirebaseUser | null) => {
             if (user) {
                 this.authStore.persistLogin();
             }

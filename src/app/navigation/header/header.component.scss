@@ -10,13 +10,13 @@ mat-toolbar {
 
         .list-item-menu {
             display: flex;
-            @media (min-width: 900px) {
+            @media (min-width: 1000px) {
                 display: none;
             }
         }
         .list-item-home {
             display: flex;
-            @media (max-width: 899px) {
+            @media (max-width: 999px) {
                 display: none;
             }
         }
@@ -52,6 +52,15 @@ mat-toolbar {
                 color: var(--eb-blue);
             }
         }
+        .vacatures {
+            cursor: pointer;
+            mat-menu {
+                button {
+                    // color: var(--eb-bright-orange);
+                }
+            }
+            // padding: 0.3rem;
+        }
 
         img {
             width: 2rem;
@@ -61,4 +70,9 @@ mat-toolbar {
 }
 .selected-language {
     border: 3px solid var(--eb-orange);
+}
+.link-active {
+    padding: 0.3rem;
+    background-color: var(--eb-orange);
+    color: var(--eb-blue);
 }

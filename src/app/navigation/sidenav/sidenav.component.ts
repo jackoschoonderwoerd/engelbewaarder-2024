@@ -4,10 +4,12 @@ import { NavigationService, NavListItem } from '../navigation.service';
 import { Router, RouterModule } from '@angular/router';
 import { UiStore } from '../../services/ui.store';
 import { AuthStore } from '../../auth/login/auth.store';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'app-sidenav',
-    imports: [MatIconModule, RouterModule],
+    imports: [MatIconModule, RouterModule, MatMenuModule, MatButtonModule],
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss'
 })

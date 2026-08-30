@@ -1,5 +1,7 @@
 <mat-toolbar>
+
     <ul class="left">
+
         <li class="list-item-menu">
             <mat-icon (click)="onToggleSidenav()">menu</mat-icon>
         </li>
@@ -13,6 +15,7 @@
 
     <ul class="right">
         @if(authStore.isLoggedIn()){
+        <li>V1</li>
         @for(item of adminNavListItems; track item) {
         <li class="admin-list-item">
             <a [routerLink]="item.english"
@@ -40,7 +43,22 @@
                 }
             </a>
         </li>
+
         }
+        <li class="vacatures"
+            [class.link-active]="vacaturesActive"
+            mat-button
+            [matMenuTriggerFor]="menu">
+            Vacatures
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item
+                    routerLink="/apply">Formulier</button>
+                <button mat-menu-item
+                    routerLink="/cook">Vacature Kok</button>
+
+            </mat-menu>
+        </li>
         <app-select-language></app-select-language>
         <!-- <img [ngClass]="{'selected-language': uiStore.selectedLanguage() === 'nl'}"
             (click)="selectLanguage('nl')"

@@ -17,6 +17,23 @@
         </a>
     </li>
     }
+
+    <li class="vacatures"
+        mat-button
+        [matMenuTriggerFor]="menu">
+        Vacatures
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item
+                routerLink="/apply"
+                (click)="onClose()">Formulier</button>
+            <button mat-menu-item
+                routerLink="/cook"
+                (click)="onClose()">Vacature Kok</button>
+
+        </mat-menu>
+    </li>
+
     @if(!authStore.isLoggedIn()) {
     <li (click)="onLogin()">
         <mat-icon>login</mat-icon>

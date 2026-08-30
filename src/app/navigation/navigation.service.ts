@@ -53,10 +53,10 @@ export class NavigationService {
             dutch: 'diner',
             english: 'dinner',
         },
-        {
-            dutch: 'vacatures',
-            english: 'apply'
-        }
+        // {
+        //     dutch: 'vacatures',
+        //     english: 'apply'
+        // }
     ]
 
     adminNavListItems: NavListItem[] = [

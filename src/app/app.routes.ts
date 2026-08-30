@@ -81,6 +81,10 @@ export const routes: Routes = [
             .then(c => c.ApplyComponent)
     },
     {
+        path: 'cook', loadComponent: () => import('./pages/visitor/cook/cook.component')
+            .then(c => c.CookComponent)
+    },
+    {
         path: '**', redirectTo: 'home'
     }
 ];
