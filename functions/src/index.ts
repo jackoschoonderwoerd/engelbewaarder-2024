@@ -62,8 +62,8 @@ export const sendContactForm = onCall(
 
         await transporter.sendMail({
             from: '"Website Contact Form" <info@cafedeengelbewaarder.nl>',
-            to: ["cafedeengelbewaarder@gmail.com", "jackoboes@gmail.com"],
-            bcc: "jackoboes@gmail.com",
+            to: ["cafedeengelbewaarder@gmail.com"],
+            bcc: [],
             replyTo: email,
             subject: `Contact form from ${name}`,
             text: `

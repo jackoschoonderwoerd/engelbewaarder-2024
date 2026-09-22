@@ -27,3 +27,19 @@ a {
 .mat-mdc-dialog-container {
     --mdc-dialog-container-shape: 5px;
 }
+.mat-mdc-menu-content {
+    background-color: var(--eb-blue);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    button {
+        background-color: var(--eb-blue);
+        color: var(--eb-bright-orange);
+        border: 2px solid var(--eb-bright-orange);
+    }
+    button:hover {
+        background-color: var(--eb-bright-orange) !important;
+        // background-color: red !important;
+        color: var(--eb-blue) !important;
+    }
+}
