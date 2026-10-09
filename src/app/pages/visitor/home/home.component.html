@@ -20,6 +20,16 @@
         <div class="openingstijden"
             fxLayout="column"
             fxLayoutAlign="center center">
+            @if(uiStore.selectedLanguage() === 'en') {
+            <div class="introduction">
+                Café De Engelbewaarder is located on the raised ground floor of a historic building on the Kloveniersburgwal in Amsterdam's city center. Established in 1971, it is a classic Amsterdam "brown café" featuring a canal-side terrace, 18 beers on tap, a rotating menu of lunch, snack, and dinner options, and a pinball machine. Live jazz sessions take place every Sunday afternoon, and a new photography exhibition is hosted once every three months.
+            </div>
+
+            } @else {
+            <div class="introduction">
+                Café De Engelbewaarder zit op de beletage van een monumentaal pand aan de Kloveniersburgwal in het centrum van Amsterdam. Het café (sinds 1971) is een klassiek Amsterdams bruin café met terras aan de gracht en 18 bieren op tap, een wisselende lunch- snack- en dinerkaart én een flipperkast. Elke zondagmiddag is er een live jazz session en 1x in de drie maanden een nieuwe foto expositie.
+            </div>
+            }
             <div class="tijden">
                 <div class="openingHours">
                     <div class="opening-hours-weekdays">
@@ -70,6 +80,7 @@
                 }
 
             </div>
+
 
         </div>
 

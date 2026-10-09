@@ -54,11 +54,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
     ngOnInit(): void {
-
-
-
-
-
+        inject(UpdateService)
         this.router.events.subscribe((e: any) => {
             if (e.url) {
                 const url = e.url
