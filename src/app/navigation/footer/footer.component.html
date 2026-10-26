@@ -74,7 +74,7 @@
             }
             &nbsp;{{companyStore.timeWeekdayOpen()}}&nbsp;{{uiStore.selectedLanguage() === 'nl' ? 'tot' : 'until'}}&nbsp;{{companyStore.timeClosedEarly()}}</div>
         <div class="">Lunch: &nbsp;{{companyStore.lunchStart()}}&nbsp;-&nbsp;{{companyStore.lunchEnd()}}</div>
-        <div class="">Snacks: &nbsp;{{companyStore.lunchStart()}}&nbsp;-&nbsp;{{companyStore.lunchEnd()}}</div>
+        <div class="">Snacks: &nbsp;{{companyStore.snacksStart()}}&nbsp;-&nbsp;{{companyStore.snacksEnd()}}</div>
         <div class="">Diner: &nbsp;{{companyStore.dinnerStart()}}&nbsp;-&nbsp;{{companyStore.dinnerEnd()}}</div>
         <br>
         @if(uiStore.selectedLanguage() === 'nl')
